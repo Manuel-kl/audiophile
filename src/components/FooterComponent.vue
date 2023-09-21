@@ -50,5 +50,81 @@ import Twitter from "../assets/svgs/Twitter.vue";
 @import "../sass/global.scss";
 footer {
   display: flex;
+  flex-direction: column;
+  padding: 35px 0px;
+
+  .links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 0;
+
+    .left {
+      h4 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $white;
+      }
+    }
+
+    .right {
+      ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        gap: 24px;
+        li {
+          a {
+            color: $white;
+            font-family: $manrope;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 25px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  .description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      opacity: 0.5;
+      color: $white;
+      font-family: $manrope;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 25px;
+      max-width: 540px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+    }
+  }
+
+  .copyrights {
+    padding-top: 30px;
+    opacity: 0.5;
+    color: $white;
+    font-family: $manrope;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 25px;
+  }
 }
 </style>

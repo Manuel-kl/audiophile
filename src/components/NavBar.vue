@@ -22,7 +22,7 @@
     <div class="right">
       <ul>
         <li>
-          <router-link to="/cart">
+          <router-link to="">
             <cart-svg />
           </router-link>
         </li>
@@ -71,11 +71,11 @@ nav.navbar {
         a {
           text-decoration: none;
           color: $white;
-          font-family: Manrope;
+          font-family: $manrope;
           font-size: 13px;
           font-style: normal;
           font-weight: 700;
-          line-height: 25px; /* 192.308% */
+          line-height: 25px;
           letter-spacing: 2px;
           text-transform: uppercase;
           position: relative;
