@@ -69,7 +69,6 @@ nav.navbar {
         font-weight: 700;
         color: $white;
         text-transform: uppercase;
-        cursor: pointer;
 
         a {
           text-decoration: none;
@@ -82,6 +81,7 @@ nav.navbar {
           letter-spacing: 2px;
           text-transform: uppercase;
           position: relative;
+        cursor: pointer;
           z-index: 1;
         }
       }

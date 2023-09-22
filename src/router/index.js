@@ -21,6 +21,21 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "speakers" */ "../views/SpeakersView.vue"),
   },
+  {
+    path: "/earphones",
+    name: "earphones",
+    component: () =>
+      import(/* webpackChunkName: "earphones" */ "../views/EarphonesView.vue"),
+  },
+  {
+    path: "/xx99-headphones",
+    name: "xx99-headphone",
+    component: () =>
+      import(
+        /* webpackChunkName: "headphones-details" */ "../views/XX99HeadphonesView.vue"
+      ),
+  },
+  
 ];
 
 const router = createRouter({

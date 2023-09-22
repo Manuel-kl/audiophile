@@ -10,13 +10,13 @@
             <router-link to="/">Home</router-link>
           </li>
           <li>
-            <router-link to="">Headphones</router-link>
+            <router-link to="/headphones">Headphones</router-link>
           </li>
           <li>
-            <router-link to="">Speakers</router-link>
+            <router-link to="/speakers">Speakers</router-link>
           </li>
           <li>
-            <router-link to="">Earphones</router-link>
+            <router-link to="/earphones">Earphones</router-link>
           </li>
         </ul>
       </div>

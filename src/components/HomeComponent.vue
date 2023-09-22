@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <NavBar />
-
     <section class="intro">
       <IntroComponent />
     </section>

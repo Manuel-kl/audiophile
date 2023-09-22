@@ -20,7 +20,7 @@
             It redefines your premium headphone experience by reproducing the
             balanced depth and precision of studio-quality sound.
           </p>
-          <router-link to="">
+          <router-link to="/xx99-headphones">
             <button>SEE PRODUCT</button>
           </router-link>
         </div>
@@ -171,18 +171,20 @@ import NavBar from "../components/NavBar.vue";
     .headphone {
       display: flex;
       flex-direction: row;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 40px;
 
       .img {
-        flex-basis: 48%;
         border-radius: 8px;
         background: $light-gray;
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 540px;
+height: 560px;
+flex-shrink: 0;
 
         img {
           width: 349.238px;
@@ -192,7 +194,6 @@ import NavBar from "../components/NavBar.vue";
       }
 
       .details {
-        flex-basis: 48%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -252,6 +253,7 @@ import NavBar from "../components/NavBar.vue";
             line-height: normal;
             letter-spacing: 1px;
             text-transform: uppercase;
+            cursor: pointer;
           }
         }
       }
@@ -323,6 +325,7 @@ import NavBar from "../components/NavBar.vue";
             text-transform: uppercase;
             border: none;
             gap: 7px;
+            cursor: pointer;
           }
         }
       }

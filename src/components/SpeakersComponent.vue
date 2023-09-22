@@ -1,4 +1,3 @@
-waka_4452922f-1aa1-45ac-a219-ab2540759f23
 <template>
   <div class="headphones-wrapper">
     <NavBar />
@@ -8,18 +7,19 @@ waka_4452922f-1aa1-45ac-a219-ab2540759f23
     <section class="headphones">
       <div class="headphone">
         <div class="img">
-          <img src="../assets/images/speaker-intro.png" alt="" />
+          <img src="../assets/images/speaker-1.png" alt="" />
         </div>
         <div class="details">
           <h2>NEW PRODUCT</h2>
           <h1>
-            XX99 MARK II <br />
-            HEADPHONES
+            ZX9 <br />
+            SPEAKER
           </h1>
           <p>
-            The new XX99 Mark II headphones is the pinnacle of pristine audio.
-            It redefines your premium headphone experience by reproducing the
-            balanced depth and precision of studio-quality sound.
+            Upgrade your sound system with the all new ZX9 active speaker. It’s
+            a bookshelf speaker system that offers truly wireless connectivity
+            -- creating new possibilities for more pleasing and practical audio
+            setups.
           </p>
           <router-link to="">
             <button>SEE PRODUCT</button>
@@ -29,40 +29,21 @@ waka_4452922f-1aa1-45ac-a219-ab2540759f23
       <div class="headphone">
         <div class="details">
           <h1>
-            XX99 MARK I <br />
-            HEADPHONES
+            ZX7 <br />
+            SPEAKER
           </h1>
           <p>
-            As the gold standard for headphones, the classic XX99 Mark I offers
-            detailed and accurate audio reproduction for audiophiles, mixing
-            engineers, and music aficionados alike in studios and on the go.
+            Stream high quality sound wirelessly with minimal loss. The ZX7
+            bookshelf speaker uses high-end audiophile components that
+            represents the top of the line powered speakers for home or studio
+            use.
           </p>
           <router-link to="">
             <button>SEE PRODUCT</button>
           </router-link>
         </div>
         <div class="img">
-          <img src="../assets/images/headphones-2.png" alt="" />
-        </div>
-      </div>
-      <div class="headphone">
-        <div class="img">
-          <img src="../assets/images/headphone-3.png" alt="" />
-        </div>
-        <div class="details">
-          <h2>NEW PRODUCT</h2>
-          <h1>
-            XX59 <br />
-            HEADPHONES
-          </h1>
-          <p>
-            Enjoy your audio almost anywhere and customize it to your specific
-            tastes with the XX59 headphones. The stylish yet durable versatile
-            wireless headset is a brilliant companion at home or on the move.
-          </p>
-          <router-link to="">
-            <button>SEE PRODUCT</button>
-          </router-link>
+          <img src="../assets/images/speaker-2.png" alt="" />
         </div>
       </div>
     </section>
@@ -172,18 +153,20 @@ import NavBar from "../components/NavBar.vue";
     .headphone {
       display: flex;
       flex-direction: row;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 40px;
 
       .img {
-        flex-basis: 48%;
         border-radius: 8px;
         background: $light-gray;
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 540px;
+        height: 560px;
+        flex-shrink: 0;
 
         img {
           width: 349.238px;
@@ -193,7 +176,6 @@ import NavBar from "../components/NavBar.vue";
       }
 
       .details {
-        flex-basis: 48%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -249,6 +231,7 @@ import NavBar from "../components/NavBar.vue";
             font-family: $manrope;
             font-size: 13px;
             font-style: normal;
+            cursor: pointer;
             font-weight: 700;
             line-height: normal;
             letter-spacing: 1px;
@@ -324,6 +307,7 @@ import NavBar from "../components/NavBar.vue";
             text-transform: uppercase;
             border: none;
             gap: 7px;
+            cursor: pointer;
           }
         }
       }
