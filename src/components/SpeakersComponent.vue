@@ -2,12 +2,12 @@
   <div class="headphones-wrapper">
     <NavBar />
     <section class="intro">
-      <h1>HEADPHONES</h1>
+      <h1>SPEAKERS</h1>
     </section>
     <section class="headphones">
       <div class="headphone">
         <div class="img">
-          <img src="../assets/images/headphones-1.png" alt="" />
+          <img src="../assets/images/speaker-intro.png" alt="" />
         </div>
         <div class="details">
           <h2>NEW PRODUCT</h2>

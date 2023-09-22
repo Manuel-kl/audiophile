@@ -15,6 +15,12 @@ const routes = [
         /* webpackChunkName: "headphones" */ "../views/HeadphonesView.vue"
       ),
   },
+  {
+    path: "/speakers",
+    name: "speakers",
+    component: () =>
+      import(/* webpackChunkName: "speakers" */ "../views/SpeakersView.vue"),
+  },
 ];
 
 const router = createRouter({

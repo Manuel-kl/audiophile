@@ -1,9 +1,7 @@
 <template>
   <div class="home">
     <NavBar />
-    <div class="border">
-      <span></span>
-    </div>
+
     <section class="intro">
       <IntroComponent />
     </section>
@@ -26,18 +24,7 @@ import NavBar from "../components/NavBar.vue";
 .home {
   display: flex;
   flex-direction: column;
-  .border {
-    background-color: $black-shade-1;
-    position: relative;
-    z-index: 1;
-    span {
-      opacity: 0.2;
-      height: 1px;
-      background-color: $white;
-      margin: 0 100px;
-      display: flex;
-    }
-  }
+
   section.intro,
   section.footer {
     background-color: $black-shade-1;

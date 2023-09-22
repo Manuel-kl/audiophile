@@ -29,6 +29,9 @@
       </ul>
     </div>
   </nav>
+  <div class="border">
+    <span></span>
+  </div>
 </template>
 <script setup>
 import CartSvg from "@/assets/svgs/CartSvg.vue";
@@ -83,6 +86,18 @@ nav.navbar {
         }
       }
     }
+  }
+}
+.border {
+  background-color: $black-shade-1;
+  position: relative;
+  z-index: 1;
+  span {
+    opacity: 0.2;
+    height: 1px;
+    background-color: $white;
+    margin: 0 100px;
+    display: flex;
   }
 }
 </style>
