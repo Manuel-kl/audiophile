@@ -59,14 +59,12 @@
         </p>
       </div>
       <div class="right">
-        <div class="content">
-          <h2>IN THE BOX</h2>
-          <p><span>1X</span> Headphone Unit</p>
-          <p><span>2X</span> Replacement Earcups</p>
-          <p><span>1X</span> User Manual</p>
-          <p><span>1X</span> 3.5mm 5m Audio Cable</p>
-          <p><span>1X</span> Travel Bag</p>
-        </div>
+        <h2>IN THE BOX</h2>
+        <p><span>1X</span> Headphone Unit</p>
+        <p><span>2X</span> Replacement Earcups</p>
+        <p><span>1X</span> User Manual</p>
+        <p><span>1X</span> 3.5mm 5m Audio Cable</p>
+        <p><span>1X</span> Travel Bag</p>
       </div>
     </section>
     <section class="footer">
@@ -104,6 +102,7 @@ import FooterComponent from "../FooterComponent.vue";
     flex-direction: row;
     justify-content: space-between;
     padding: 0 100px;
+    flex-wrap: wrap;
 
     .img {
       border-radius: 8px;
@@ -114,6 +113,7 @@ import FooterComponent from "../FooterComponent.vue";
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-basis: 45%;
 
       img {
         width: 349.238px;
@@ -127,6 +127,7 @@ import FooterComponent from "../FooterComponent.vue";
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+      flex-basis: 45%;
       gap: 24px;
 
       h2 {
@@ -246,11 +247,14 @@ import FooterComponent from "../FooterComponent.vue";
     flex-direction: row;
     justify-content: space-between;
     padding: 100px;
+    flex-wrap: wrap;
+    gap: 24px;
 
     .left {
       display: flex;
       flex-direction: column;
       gap: 24px;
+      flex-basis: 45%;
 
       h2 {
         color: $black;
@@ -277,7 +281,7 @@ import FooterComponent from "../FooterComponent.vue";
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      justify-content: center;
+      flex-basis: 45%;
 
       h2 {
         color: $black;
@@ -288,6 +292,25 @@ import FooterComponent from "../FooterComponent.vue";
         line-height: 36px;
         letter-spacing: 1.143px;
         text-transform: uppercase;
+        margin-bottom: 32px;
+      }
+      p {
+        color: $black;
+        font-family: $manrope;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 25px;
+
+        span {
+          color: $primary-color;
+          font-family: $manrope;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 25px;
+          margin-right: 8px;
+        }
       }
     }
   }
