@@ -67,6 +67,21 @@
         <p><span>1X</span> Travel Bag</p>
       </div>
     </section>
+    <section class="images">
+      <div class="left">
+        <img src="../../assets/images/xx99-one.png" alt="xx99-headphones" />
+        <img src="../../assets/images/xx99-two.png" alt="xx99-headphones" />
+      </div>
+      <div class="right">
+        <img src="../../assets/images/xx99-three.png" alt="xx99-headphones" />
+      </div>
+    </section>
+    <section class="recommendations">
+      <more-products-component />
+    </section>
+    <section class="more-info">
+      <audio-phile-description />
+    </section>
     <section class="footer">
       <footer-component />
     </section>
@@ -75,6 +90,8 @@
 <script setup>
 import NavBar from "../NavBar.vue";
 import FooterComponent from "../FooterComponent.vue";
+import MoreProductsComponent from "./MoreProductsComponent.vue";
+import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
 </script>
 <style lang="scss" scoped>
 @import "../../sass/global.scss";
@@ -313,6 +330,37 @@ import FooterComponent from "../FooterComponent.vue";
         }
       }
     }
+  }
+  section.images {
+    display: flex;
+    flex-direction: row;
+    padding: 0 100px;
+    flex-wrap: wrap;
+    gap: 24px;
+    height: 600px;
+    margin: auto;
+    .left {
+      display: flex;
+      flex-direction: column;
+      flex-direction: column;
+      gap: 24px;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
+    .right {
+      img {
+        object-fit: cover;
+        border-radius: 8px;
+        width: 100%;
+      }
+    }
+  }
+  section.recommendations {
+    padding: 100px;
   }
   section.footer {
     background-color: $black;

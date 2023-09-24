@@ -183,8 +183,8 @@ import NavBar from "../components/NavBar.vue";
         justify-content: center;
         align-items: center;
         width: 540px;
-height: 560px;
-flex-shrink: 0;
+        height: 560px;
+        flex-shrink: 0;
 
         img {
           width: 349.238px;
