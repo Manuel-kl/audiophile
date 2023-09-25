@@ -21,7 +21,7 @@
             -- creating new possibilities for more pleasing and practical audio
             setups.
           </p>
-          <router-link to="">
+          <router-link to="/zx9-speaker">
             <button>SEE PRODUCT</button>
           </router-link>
         </div>
@@ -38,7 +38,7 @@
             represents the top of the line powered speakers for home or studio
             use.
           </p>
-          <router-link to="">
+          <router-link to="/zx7-speaker">
             <button>SEE PRODUCT</button>
           </router-link>
         </div>

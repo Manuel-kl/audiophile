@@ -8,7 +8,9 @@
         </div>
         <div class="info">
           <h3>XX99 MARK I</h3>
-          <router-link to=""> SEE PRODUCT </router-link>
+          <router-link to="/xx99-mark-one-headphones">
+            SEE PRODUCT
+          </router-link>
         </div>
       </div>
       <div class="product">

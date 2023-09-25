@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="copyrights">
-      <p>© 2021 Audiophile. All rights reserved</p>
+      <p>© {{ year }} Audiophile. All rights reserved</p>
     </div>
   </footer>
 </template>
@@ -45,6 +45,10 @@
 import Facebook from "../assets/svgs/Facebook.vue";
 import Instagram from "../assets/svgs/Instagram.vue";
 import Twitter from "../assets/svgs/Twitter.vue";
+
+import { computed } from "vue";
+
+const year = computed(() => new Date().getFullYear());
 </script>
 <style lang="scss" scoped>
 @import "../sass/global.scss";

@@ -20,7 +20,7 @@
             It redefines your premium headphone experience by reproducing the
             balanced depth and precision of studio-quality sound.
           </p>
-          <router-link to="/xx99-headphones">
+          <router-link to="/xx99II-headphones">
             <button>SEE PRODUCT</button>
           </router-link>
         </div>
@@ -36,7 +36,7 @@
             detailed and accurate audio reproduction for audiophiles, mixing
             engineers, and music aficionados alike in studios and on the go.
           </p>
-          <router-link to="">
+          <router-link to="/xx99-mark-one-headphones">
             <button>SEE PRODUCT</button>
           </router-link>
         </div>
@@ -59,7 +59,7 @@
             tastes with the XX59 headphones. The stylish yet durable versatile
             wireless headset is a brilliant companion at home or on the move.
           </p>
-          <router-link to="">
+          <router-link to="/xx59-headphones">
             <button>SEE PRODUCT</button>
           </router-link>
         </div>
@@ -71,7 +71,7 @@
         <OvalShadow class="shadow" />
         <div class="product-info">
           <h2>HEADPHONES</h2>
-          <router-link to="">
+          <router-link to="/headphones">
             <button>
               SHOP
               <GreaterSign />
@@ -84,7 +84,7 @@
         <OvalShadow class="shadow" />
         <div class="product-info">
           <h2>SPEAKERS</h2>
-          <router-link to="">
+          <router-link to="/speakers">
             <button>
               SHOP
               <GreaterSign />
@@ -97,7 +97,7 @@
         <OvalShadow class="shadow" />
         <div class="product-info">
           <h2>EARPHONES</h2>
-          <router-link to="">
+          <router-link to="/earphones">
             <button>
               SHOP
               <GreaterSign />
