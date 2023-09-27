@@ -39,6 +39,9 @@
           </div>
           <button>ADD TO CART</button>
         </div>
+        <div class="checkout-popup">
+          <checkout />
+        </div>
       </div>
     </section>
     <section class="features">
@@ -102,6 +105,7 @@ import NavBar from "../NavBar.vue";
 import FooterComponent from "../FooterComponent.vue";
 import MoreProductsComponent from "./MoreProductsComponent.vue";
 import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
+import checkout from "../CheckoutComponents/Checkout.vue";
 </script>
   <style lang="scss" scoped>
 @import "../../sass/global.scss";
@@ -155,6 +159,7 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
       justify-content: center;
       align-items: flex-start;
       flex-basis: 45%;
+      position: relative;
       gap: 24px;
 
       h2 {
