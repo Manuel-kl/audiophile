@@ -20,22 +20,59 @@
       </ul>
     </div>
     <div class="right">
-      <ul>
-        <li>
-          <router-link to="">
-            <cart-svg />
-          </router-link>
-        </li>
-      </ul>
+      <div @click="toggleCart">
+        <cart-svg />
+      </div>
     </div>
   </nav>
+  <div class="view-cart" v-if="showCart">
+    <Cart v-click-outside="hideCart" />
+  </div>
   <div class="border">
     <span></span>
   </div>
 </template>
+
 <script setup>
 import CartSvg from "@/assets/svgs/CartSvg.vue";
+import Cart from "@/components/Cart/CartComponent.vue";
+import { ref } from "vue";
+
+const showCart = ref(false);
+
+const toggleCart = () => {
+  showCart.value = !showCart.value;
+};
+
+const hideCart = () => {
+  if (showCart.value == true) {
+    showCart.value = false;
+  }
+};
+
+const vClickOutside = {
+  mounted(el, binding) {
+    el.__ClickOutsideHandler__ = (event) => {
+      const excludedElement = document.querySelector(".right");
+      if (
+        !(
+          el === event.target ||
+          el.contains(event.target) ||
+          (event.targe !== null && excludedElement.contains(event.target))
+        )
+      ) {
+        binding.value(event);
+      }
+    };
+    document.body.addEventListener("click", el.__ClickOutsideHandler__);
+  },
+
+  unmounted(el) {
+    document.body.removeEventListener("click", el.__ClickOutsideHandler__);
+  },
+};
 </script>
+
 <style lang="scss" scoped>
 @import "../sass/global.scss";
 
@@ -46,6 +83,7 @@ nav.navbar {
   align-items: center;
   padding: 35px 100px;
   background-color: $black-shade-2;
+  z-index: 4;
 
   .left {
     h1 {
@@ -81,11 +119,15 @@ nav.navbar {
           letter-spacing: 2px;
           text-transform: uppercase;
           position: relative;
-        cursor: pointer;
+          cursor: pointer;
           z-index: 1;
         }
       }
     }
+  }
+
+  .right {
+    cursor: pointer;
   }
 }
 .border {
@@ -99,5 +141,12 @@ nav.navbar {
     margin: 0 100px;
     display: flex;
   }
+}
+.view-cart {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba($black, 0.4);
+  z-index: 1;
 }
 </style>

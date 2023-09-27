@@ -72,11 +72,13 @@
   flex-direction: column;
   gap: 24px;
   width: 341px;
-  height: 488px;
   flex-shrink: 0;
   border-radius: 8px;
   background: $white;
   padding: 24px;
+  position: absolute;
+  right: 100px;
+  top: 132px;
 
   .cart {
     display: flex;
@@ -137,9 +139,6 @@
           display: flex;
 
           img {
-            width: 36.19px;
-            height: 40px;
-            flex-shrink: 0;
             margin: auto;
           }
         }
