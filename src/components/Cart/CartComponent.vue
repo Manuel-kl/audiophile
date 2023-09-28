@@ -59,11 +59,19 @@
       </div>
     </div>
     <div class="checkout">
-      <button>CHECKOUT</button>
+      <button @click="goToCheckout">CHECKOUT</button>
     </div>
   </div>
 </template>
-<script setup></script>
+<script setup>
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const goToCheckout = () => {
+  router.push("/checkout");
+};
+</script>
 <style lang="scss" scoped>
 @import "../../sass/global.scss";
 

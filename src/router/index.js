@@ -80,6 +80,15 @@ const routes = [{
                 /* webpackChunkName: "earphones-details" */
                 "../views/YX1EarphonesView.vue"
             ),
+    },
+    {
+        path: "/checkout",
+        name: "checkout",
+        component: () =>
+            import (
+                /* webpackChunkName: "checkout" */
+                "../views/CheckoutView.vue"
+            ),
     }
 ];
 
