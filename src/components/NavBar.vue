@@ -26,7 +26,7 @@
     </div>
   </nav>
   <div class="view-cart" v-if="showCart">
-    <Cart v-click-outside="hideCart" />
+    <CartComponent v-click-outside="hideCart" />
   </div>
   <div class="border">
     <span></span>
@@ -35,7 +35,7 @@
 
 <script setup>
 import CartSvg from "@/assets/svgs/CartSvg.vue";
-import Cart from "@/components/Cart/CartComponent.vue";
+import CartComponent from "@/components/Cart/CartComponent.vue";
 import { ref } from "vue";
 
 const showCart = ref(false);
@@ -143,7 +143,7 @@ nav.navbar {
   }
 }
 .view-cart {
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   background: rgba($black, 0.4);

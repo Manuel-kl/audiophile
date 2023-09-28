@@ -1,8 +1,6 @@
 <template>
   <div class="checkout-wrapper">
-    <div class="nav-bar">
-      <nav-bar />
-    </div>
+    <NavBar />
     <div class="back">
       <h1 @click="goBack">Go back</h1>
     </div>
@@ -55,19 +53,29 @@
           <div class="payment-method">
             <h4>Payment Method</h4>
             <div class="options">
-              <div class="option">
-                <input type="radio" id="e-money" name="payment" checked />
-                <label for="e-money">e-Money</label>
+              <div
+                class="option"
+                @click="selectEMoney"
+                :class="{ optionSelected: ePayment }"
+              >
+                <UnselectedRadioSvg v-if="!ePayment" />
+                <SelectedRadioSvg v-if="ePayment" class="selectedRadio" />
+                <p id="e-money">e-Money</p>
               </div>
-              <div class="option">
-                <input type="radio" id="cash" name="payment" />
-                <label for="cash">Cash on Delivery</label>
+              <div
+                class="option"
+                @click="selectCash"
+                :class="{ optionSelected: cashPayment }"
+              >
+                <UnselectedRadioSvg v-if="!cashPayment" />
+                <SelectedRadioSvg v-if="cashPayment" class="selectedRadio" />
+                <p class="cash">Cash on Delivery</p>
               </div>
             </div>
           </div>
           <div class="selected-options">
             <div class="e-money" v-if="eMoney">
-              <div class="form-group">
+              <div class="form-group" :class="selected">
                 <label for="e-name">e-Money Number</label>
                 <input type="text" id="e-name" placeholder="238521993" />
               </div>
@@ -84,7 +92,9 @@
         <div class="products">
           <div class="product">
             <div class="left">
-              <img src="../../assets/images/cart-image-1.png" alt="" />
+              <div class="img">
+                <img src="../../assets/images/cart-image-1.png" alt="" />
+              </div>
               <div class="info">
                 <h4>XX99 MK II</h4>
                 <p class="price">$2,999</p>
@@ -96,7 +106,9 @@
           </div>
           <div class="product">
             <div class="left">
-              <img src="../../assets/images/cart-image-2.png" alt="" />
+              <div class="img">
+                <img src="../../assets/images/cart-image-2.png" alt="" />
+              </div>
               <div class="info">
                 <h4>XX59</h4>
                 <p class="price">$899</p>
@@ -108,7 +120,9 @@
           </div>
           <div class="product">
             <div class="left">
-              <img src="../../assets/images/cart-image-3.png" alt="" />
+              <div class="img">
+                <img src="../../assets/images/cart-image-3.png" alt="" />
+              </div>
               <div class="info">
                 <h4>YX1</h4>
                 <p class="price">$599</p>
@@ -121,24 +135,27 @@
         </div>
         <div class="summary-total">
           <div class="total">
-            <p>TOTAL</p>
+            <p class="ww">TOTAL</p>
             <p class="price">$5,296</p>
           </div>
           <div class="shipping">
-            <p>SHIPPING</p>
+            <p class="ww">SHIPPING</p>
             <p class="price">$50</p>
           </div>
           <div class="vat">
-            <p>VAT (INCLUDED)</p>
+            <p class="ww">VAT (INCLUDED)</p>
             <p class="price">$1,079</p>
           </div>
           <div class="grand-total">
-            <p>GRAND TOTAL</p>
-            <p class="price">$5,446</p>
+            <p class="ww">GRAND TOTAL</p>
+            <p class="total">$5,446</p>
           </div>
-          <button class="btn">CONTINUE & PAY</button>
+          <button class="btn" @click="makeOrder">CONTINUE & PAY</button>
         </div>
       </div>
+    </section>
+    <section class="order-confirmation" v-if="showOrder">
+      <confirm-order-component v-click-outside="hideOrder" />
     </section>
     <div class="footer">
       <footer-component />
@@ -146,19 +163,76 @@
   </div>
 </template>
 <script setup>
+import ConfirmOrderComponent from "../Cart/ConfirmOrderComponent.vue";
 import NavBar from "../NavBar.vue";
 import FooterComponent from "../FooterComponent.vue";
+import UnselectedRadioSvg from "../../assets/svgs/UnselectedRadioSvg.vue";
+import SelectedRadioSvg from "../../assets/svgs/SelectedRadioSvg.vue";
+
 import { useRouter } from "vue-router";
+import { ref } from "vue";
 
 const router = useRouter();
 
 const goBack = () => {
   router.go(-1);
 };
+
+const cashPayment = ref(false);
+const ePayment = ref(true);
+const eMoney = ref(true);
+const selected = ref(false);
+const showOrder = ref(false);
+
+const selectEMoney = () => {
+  ePayment.value = true;
+  cashPayment.value = false;
+  eMoney.value = true;
+  selected.value = true;
+};
+
+const selectCash = () => {
+  cashPayment.value = true;
+  ePayment.value = false;
+  eMoney.value = false;
+  selected.value = false;
+};
+
+const makeOrder = () => {
+  showOrder.value = true;
+};
+
+const hideOrder = () => {
+  showOrder.value = false;
+};
+
+const vClickOutside = {
+  mounted(el, binding) {
+    el.__ClickOutsideHandler__ = (event) => {
+      const excludedElement = document.querySelector(".btn");
+      if (
+        !(
+          el === event.target ||
+          el.contains(event.target) ||
+          (event.targe !== null && excludedElement.contains(event.target))
+        )
+      ) {
+        binding.value(event);
+      }
+    };
+    document.body.addEventListener("click", el.__ClickOutsideHandler__);
+  },
+
+  unmounted(el) {
+    document.body.removeEventListener("click", el.__ClickOutsideHandler__);
+  },
+};
 </script>
 <style lang="scss" scoped>
 @import "../../sass/global.scss";
 .checkout-wrapper {
+  display: flex;
+  flex-direction: column;
   .back {
     background: $light-gray;
     padding: 30px 100px;
@@ -177,17 +251,16 @@ const goBack = () => {
     }
   }
   section.checkout {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
     gap: 24px;
-    padding: 0 100px;
+    padding: 0 100px 58px 100px;
     background: $light-gray;
 
     div.checkout {
       display: flex;
       flex-direction: column;
       gap: 56px;
-      flex-basis: 65%;
       padding: 58px 40px 0px 40px;
       background: $white;
       border-radius: 8px;
@@ -270,6 +343,7 @@ const goBack = () => {
         .payment-method {
           display: grid;
           grid-template-columns: 1fr 1fr;
+          padding-bottom: 44px;
 
           h4 {
             color: $primary-color;
@@ -288,31 +362,251 @@ const goBack = () => {
             gap: 24px;
 
             .option {
-              width: 300px;
-              padding: 24px;
-              flex-shrink: 0;
-              border-radius: 8px;
-              border: 1px solid $primary-color;
-              background: $white;
               display: flex;
               justify-content: flex-start;
               gap: 24px;
               align-items: center;
+              border: 1px solid #cfcfcf;
+              color: $black;
+              font-family: $manrope;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+              letter-spacing: -0.25px;
+              width: 300px;
+              padding: 24px;
+              flex-shrink: 0;
+              border-radius: 8px;
+              background: $white;
+
+              &:hover {
+                border: 1px solid $primary-color;
+                cursor: pointer;
+              }
+
+              .selectedRadio {
+                padding: 5px;
+                border: 1px solid $primary-color;
+                border-radius: 50%;
+              }
+            }
+            .optionSelected {
+              border: 1px solid $primary-color;
+            }
+          }
+        }
+        .selected-options {
+          padding-bottom: 44px;
+          .e-money {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 24px;
+            .form-group {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
 
               label {
                 color: $black;
                 font-family: $manrope;
-                font-size: 14px;
+                font-size: 12px;
                 font-style: normal;
                 font-weight: 700;
                 line-height: normal;
-                letter-spacing: -0.25px;
+                letter-spacing: -0.214px;
+              }
+
+              input {
+                border-radius: 8px;
+                border: 1px solid #cfcfcf;
+                background: $white;
+                width: 300px;
+                flex-shrink: 0;
+                outline: none;
+                padding: 16px 24px;
+
+                &::placeholder {
+                  color: $black;
+                  font-family: $manrope;
+                  font-size: 14px;
+                  font-style: normal;
+                  font-weight: 700;
+                  line-height: normal;
+                  letter-spacing: -0.25px;
+                  opacity: 0.4;
+                }
               }
             }
           }
         }
       }
     }
+
+    div.summary {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      border-radius: 8px;
+      background: $white;
+      padding: 33px;
+      height: fit-content;
+
+      h3 {
+        color: $black;
+        font-family: $manrope;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 1.286px;
+        text-transform: uppercase;
+      }
+
+      .products {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .product {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          gap: 24px;
+
+          .left {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+
+            .img {
+              border-radius: 8px;
+              background: $light-gray;
+              width: 64px;
+              height: 64px;
+              flex-shrink: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .info {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+
+              h4 {
+                color: $black;
+                font-family: $manrope;
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 25px;
+              }
+
+              .price {
+                color: $black;
+                font-family: $manrope;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 25px;
+              }
+            }
+          }
+
+          .right {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+
+            p {
+              color: $black;
+              text-align: right;
+              font-family: $manrope;
+              font-size: 15px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 25px;
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+
+      .summary-total {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .total,
+        .shipping,
+        .vat,
+        .grand-total {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          gap: 24px;
+
+          p.ww {
+            color: $black;
+            font-family: $manrope;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 25px;
+            opacity: 0.5;
+          }
+
+          p.price {
+            color: $black;
+            text-align: right;
+            font-family: $manrope;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-transform: uppercase;
+          }
+
+          p.total {
+            color: $primary-color;
+            text-align: right;
+            font-family: $manrope;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-transform: uppercase;
+          }
+        }
+
+        .btn {
+          background: $primary-color;
+          color: $white;
+          font-family: $manrope;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 25px;
+          padding: 16px 24px;
+          width: 100%;
+          border: none;
+          outline: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  section.order-confirmation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    background-position: fixed;
   }
   .footer {
     background-color: $black-shade-1;
