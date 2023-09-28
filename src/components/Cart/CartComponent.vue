@@ -117,6 +117,11 @@ const goToCheckout = () => {
       cursor: pointer;
       border: none;
       background: none;
+
+      &:hover {
+        color: $primary-color;
+        opacity: 1;
+      }
     }
   }
 
@@ -263,6 +268,10 @@ const goToCheckout = () => {
       width: 100%;
       height: 48px;
       cursor: pointer;
+
+      &:hover {
+        background-color: $secondary-color;
+      }
     }
   }
 }

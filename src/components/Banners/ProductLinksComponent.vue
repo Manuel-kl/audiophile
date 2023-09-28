@@ -112,6 +112,10 @@ div.product-links {
           border: none;
           gap: 7px;
           cursor: pointer;
+
+          &:hover {
+            color: $primary-color;
+          }
         }
       }
     }

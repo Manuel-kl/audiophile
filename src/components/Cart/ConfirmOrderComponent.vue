@@ -234,6 +234,13 @@
         text-transform: uppercase;
         cursor: pointer;
       }
+
+      &:hover {
+        background-color: $secondary-color;
+        button {
+          background-color: $secondary-color;
+        }
+      }
     }
   }
 }

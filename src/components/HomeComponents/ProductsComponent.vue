@@ -6,7 +6,7 @@
         <OvalShadow class="shadow" />
         <div class="product-info">
           <h2>HEADPHONES</h2>
-          <router-link to="">
+          <router-link to="/headphones">
             <button>
               SHOP
               <GreaterSign />
@@ -19,7 +19,7 @@
         <OvalShadow class="shadow" />
         <div class="product-info">
           <h2>SPEAKERS</h2>
-          <router-link to="">
+          <router-link to="/speakers">
             <button>
               SHOP
               <GreaterSign />
@@ -32,7 +32,7 @@
         <OvalShadow class="shadow" />
         <div class="product-info">
           <h2>EARPHONES</h2>
-          <router-link to="">
+          <router-link to="/earphones">
             <button>
               SHOP
               <GreaterSign />
@@ -53,7 +53,7 @@
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <router-link to="">
+          <router-link to="/zx9-speaker">
             <button>SEE PRODUCT</button>
           </router-link>
         </div>
@@ -61,7 +61,7 @@
       <div class="product-two">
         <div class="info">
           <h1>ZX7 SPEAKER</h1>
-          <router-link to="">
+          <router-link to="/zx7-speaker">
             <button>SEE PRODUCT</button>
           </router-link>
         </div>
@@ -71,7 +71,7 @@
         <img src="../../assets/images/yx1-earphones.png" alt="" />
         <div class="info">
           <h1>YX1 EARPHONES</h1>
-          <router-link to="">
+          <router-link to="/yx1-earphones">
             <button>SEE PRODUCT</button>
           </router-link>
         </div>
@@ -176,6 +176,13 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
             border: none;
             gap: 7px;
           }
+
+          &:hover {
+            button {
+              color: $primary-color;
+              cursor: pointer;
+            }
+          }
         }
       }
     }
@@ -253,6 +260,13 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
             border: none;
             cursor: pointer;
           }
+
+          &:hover {
+            background: #4c4c4c;
+            button {
+              background: #4c4c4c;
+            }
+          }
         }
       }
     }
@@ -310,6 +324,14 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
             border: none;
             cursor: pointer;
             background: transparent;
+          }
+
+          &:hover {
+            background: $black;
+            button {
+              background: $black;
+              color: $white;
+            }
           }
         }
       }
@@ -369,6 +391,14 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
             border: none;
             cursor: pointer;
             background: transparent;
+          }
+
+          &:hover {
+            background: $black;
+            button {
+              background: $black;
+              color: $white;
+            }
           }
         }
       }

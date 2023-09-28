@@ -248,6 +248,10 @@ const vClickOutside = {
       font-style: normal;
       font-weight: 500;
       line-height: 25px;
+
+      &:hover {
+        color: $primary-color;
+      }
     }
   }
   section.checkout {
@@ -332,6 +336,10 @@ const vClickOutside = {
                 line-height: normal;
                 letter-spacing: -0.25px;
                 opacity: 0.4;
+              }
+
+              &:focus-visible {
+                border: 1px solid $primary-color;
               }
             }
           }
@@ -597,6 +605,10 @@ const vClickOutside = {
           border: none;
           outline: none;
           cursor: pointer;
+
+          &:hover {
+            background-color: $secondary-color;
+          }
         }
       }
     }

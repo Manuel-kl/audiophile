@@ -7,7 +7,9 @@
         Experience natural, lifelike audio and exceptional build quality made
         for the passionate music enthusiast.
       </p>
-      <button>SEE PRODUCT</button>
+      <router-link to="/xx99-mark-one-headphones">
+        <button>SEE PRODUCT</button>
+      </router-link>
     </div>
     <div class="right">
       <img src="../../assets/images/intro-headphones.png" alt="headphones" />
@@ -63,13 +65,30 @@
       width: 349px;
     }
 
-    button {
+    a {
       background: $primary-color;
       width: 160px;
-      height: 48px;
-      flex-shrink: 0;
-      border: none;
-      color: $white;
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+
+      button {
+        background: $primary-color;
+        padding: 15px;
+        flex-shrink: 0;
+        border: none;
+        color: $white;
+        font-family: $manrope;
+        cursor: pointer;
+      }
+
+      &:hover {
+        background: $secondary-color;
+
+        button {
+          background: $secondary-color;
+        }
+      }
     }
   }
 

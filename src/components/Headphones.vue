@@ -255,6 +255,14 @@ import NavBar from "../components/NavBar.vue";
             text-transform: uppercase;
             cursor: pointer;
           }
+
+          &:hover {
+            background: #fbaf85;
+
+            button {
+              background: #fbaf85;
+            }
+          }
         }
       }
     }
@@ -326,6 +334,12 @@ import NavBar from "../components/NavBar.vue";
             border: none;
             gap: 7px;
             cursor: pointer;
+          }
+
+          &:hover {
+            button {
+              color: $primary-color;
+            }
           }
         }
       }

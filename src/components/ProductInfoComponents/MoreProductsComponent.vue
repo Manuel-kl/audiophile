@@ -19,7 +19,7 @@
         </div>
         <div class="info">
           <h3>XX59</h3>
-          <router-link to=""> SEE PRODUCT </router-link>
+          <router-link to="/xx59-headphones"> SEE PRODUCT </router-link>
         </div>
       </div>
       <div class="product">
@@ -27,8 +27,8 @@
           <img src="../../assets/images/speaker-more-1.png" alt="" />
         </div>
         <div class="info">
-          <h3>XX59</h3>
-          <router-link to=""> SEE PRODUCT </router-link>
+          <h3>ZX9 SPEAKER</h3>
+          <router-link to="/zx9-speaker"> SEE PRODUCT </router-link>
         </div>
       </div>
     </div>
@@ -111,6 +111,10 @@ import ProductLinksComponent from "../Banners/ProductLinksComponent.vue";
         line-height: normal;
         letter-spacing: 1px;
         text-transform: uppercase;
+
+        &:hover {
+          background-color: $secondary-color;
+        }
       }
     }
   }

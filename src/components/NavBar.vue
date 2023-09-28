@@ -121,6 +121,10 @@ nav.navbar {
           position: relative;
           cursor: pointer;
           z-index: 1;
+
+          &:hover {
+            color: $primary-color;
+          }
         }
       }
     }

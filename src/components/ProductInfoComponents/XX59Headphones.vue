@@ -2,9 +2,7 @@
   <div class="product-info">
     <nav-bar />
     <section class="back">
-      <router-link to="/headphones" class="back-link">
-        <p>Go Back</p>
-      </router-link>
+      <p @click="goBack" class="back-link">Go Back</p>
     </section>
     <section class="intro">
       <div class="img">
@@ -99,6 +97,14 @@ import NavBar from "../NavBar.vue";
 import FooterComponent from "../FooterComponent.vue";
 import MoreProductsComponent from "./MoreProductsComponent.vue";
 import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
+
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const goBack = () => {
+  router.go(-1);
+};
 </script>
     <style lang="scss" scoped>
 @import "../../sass/global.scss";
@@ -118,6 +124,12 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
       font-weight: 500;
       line-height: 25px;
       text-decoration: none;
+      cursor: pointer;
+      width: fit-content;
+
+      &:hover {
+        color: $primary-color;
+      }
     }
   }
 
@@ -262,6 +274,10 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
           border: none;
           background-color: $primary-color;
           cursor: pointer;
+
+          &:hover {
+            background-color: $secondary-color;
+          }
         }
       }
     }

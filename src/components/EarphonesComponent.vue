@@ -33,7 +33,7 @@
         <OvalShadow class="shadow" />
         <div class="product-info">
           <h2>HEADPHONES</h2>
-          <router-link to="">
+          <router-link to="/headphones">
             <button>
               SHOP
               <GreaterSign />
@@ -46,7 +46,7 @@
         <OvalShadow class="shadow" />
         <div class="product-info">
           <h2>SPEAKERS</h2>
-          <router-link to="">
+          <router-link to="/speakers">
             <button>
               SHOP
               <GreaterSign />
@@ -59,7 +59,7 @@
         <OvalShadow class="shadow" />
         <div class="product-info">
           <h2>EARPHONES</h2>
-          <router-link to="">
+          <router-link to="/earphones">
             <button>
               SHOP
               <GreaterSign />
@@ -215,6 +215,9 @@ import NavBar from "../components/NavBar.vue";
             line-height: normal;
             letter-spacing: 1px;
             text-transform: uppercase;
+          }
+
+          &:hover {
           }
         }
       }

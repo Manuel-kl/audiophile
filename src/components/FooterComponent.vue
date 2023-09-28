@@ -50,6 +50,19 @@ import { computed } from "vue";
 
 const year = computed(() => new Date().getFullYear());
 </script>
+<style lang="scss">
+@import "../sass/global.scss";
+.social-links {
+  svg {
+    cursor: pointer;
+    &:hover {
+      path {
+        fill: $primary-color;
+      }
+    }
+  }
+}
+</style>
 <style lang="scss" scoped>
 @import "../sass/global.scss";
 footer {
@@ -89,6 +102,10 @@ footer {
             letter-spacing: 2px;
             text-transform: uppercase;
             text-decoration: none;
+
+            &:hover {
+              color: $primary-color;
+            }
           }
         }
       }
@@ -117,6 +134,16 @@ footer {
       flex-direction: row;
       align-items: center;
       gap: 24px;
+
+      svg {
+        cursor: pointer;
+
+        &:hover {
+          path {
+            fill: $primary-color;
+          }
+        }
+      }
     }
   }
 
