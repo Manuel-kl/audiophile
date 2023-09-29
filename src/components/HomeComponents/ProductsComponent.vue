@@ -76,25 +76,6 @@
           </router-link>
         </div>
       </div>
-      <div class="product-four">
-        <div class="left">
-          <h1>
-            <br />
-            Bringing you the <span> best </span> audio gear
-          </h1>
-          <p>
-            Located at the heart of New York City, Audiophile is the premier
-            store for high end headphones, earphones, speakers, and audio
-            accessories. We have a large showroom and luxury demonstration rooms
-            available for you to browse and experience a wide range of our
-            products. Stop by our store to meet some of the fantastic people who
-            make Audiophile the best place to buy your portable audio equipment.
-          </p>
-        </div>
-        <div class="right">
-          <img src="../../assets/images/audio-gear.png" alt="" />
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -111,10 +92,17 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
   .products-intro {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     margin: 100px 0;
     padding: 40px 0;
+    width: 100%;
+    gap: 20px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      margin-top: 50;
+      gap: 100px;
+    }
 
     .product {
       display: flex;
@@ -122,11 +110,20 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
       justify-content: center;
       align-items: center;
       border-radius: 8px;
-      width: 350px;
+      max-width: 350px;
       height: 204px;
       flex-shrink: 0;
       background: $light-gray;
       position: relative;
+      flex: 1;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        background: $light-gray;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 40px;
+      }
 
       img {
         position: absolute;
@@ -143,7 +140,7 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 50px;
+        margin-top: 100px;
         gap: 20px;
 
         h2 {
@@ -199,13 +196,36 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
       align-items: flex-end;
       border-radius: 8px;
       background: $primary-color;
-      height: 560px;
+      height: 460px;
       margin-bottom: 40px;
+
+      @media (max-width: 1024px) {
+        height: 400px;
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        height: 100%;
+        padding: 20px;
+        margin-bottom: 100px;
+      }
 
       img {
         flex-shrink: 0;
         display: flex;
         margin: 0 auto;
+        width: 370px;
+        flex-shrink: 0;
+
+        @media (max-width: 1024px) {
+          width: 300px;
+        }
+
+        @media (max-width: 500px) {
+          width: 172.248px;
+          height: 207px;
+          flex-shrink: 0;
+        }
       }
 
       .right {
@@ -213,6 +233,12 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
         flex-direction: column;
         gap: 24px;
         margin: auto;
+
+        @media (max-width: 768px) {
+          align-items: center;
+          text-align: center;
+          margin-top: 24px;
+        }
 
         h1 {
           color: $white;
@@ -223,6 +249,10 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
           line-height: 58px;
           letter-spacing: 2px;
           text-transform: uppercase;
+
+          @media (max-width: 1024px) {
+            font-size: 45px;
+          }
         }
 
         p {
@@ -233,7 +263,15 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
           font-style: normal;
           font-weight: 500;
           line-height: 25px;
-          width: 349px;
+          max-width: 349px;
+
+          @media (max-width: 1024px) {
+            max-width: 300px;
+          }
+
+          @media (max-width: 768px) {
+            max-width: 500px;
+          }
         }
 
         a {
@@ -278,6 +316,8 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
       img {
         width: 100%;
         border-radius: 8px;
+        height: 350px;
+        object-fit: cover;
       }
 
       .info {
@@ -287,9 +327,13 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
         margin: auto;
         align-items: center;
         position: absolute;
-        top: 50%;
+        top: 125px;
         left: 50px;
         gap: 20px;
+
+        @media (max-width: 768px) {
+          left: 20px;
+        }
 
         h1 {
           color: $black;
@@ -340,13 +384,24 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
     .product-three {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      flex-wrap: wrap;
       margin-bottom: 100px;
+      gap: 24px;
+
+      @media (max-width: 675px) {
+        flex-direction: column;
+        gap: 40px;
+      }
 
       img {
-        flex-basis: 49%;
         border-radius: 8px;
+        width: 50%;
+        height: 250px;
+        object-fit: cover;
+
+        @media (max-width: 675px) {
+          width: 100%;
+          height: 300px;
+        }
       }
       .info {
         display: flex;
@@ -355,8 +410,12 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
         align-items: center;
         gap: 32px;
         border-radius: 8px;
-        flex-basis: 49%;
         background: $light-gray;
+        flex: 1;
+
+        @media (max-width: 675px) {
+          padding: 20px;
+        }
 
         h1 {
           color: $black;
@@ -367,6 +426,10 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
           line-height: normal;
           letter-spacing: 2px;
           text-transform: uppercase;
+
+          @media (max-width: 675px) {
+            text-align: center;
+          }
         }
 
         a {
@@ -400,54 +463,6 @@ import OvalShadow from "@/assets/svgs/OvalShadow.vue";
               color: $white;
             }
           }
-        }
-      }
-    }
-
-    .product-four {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 100px;
-
-      .left {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-
-        h1 {
-          color: $black;
-          width: 445px;
-          font-family: $manrope;
-          font-size: 40px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: normal;
-          line-height: 44px;
-          letter-spacing: 1.429px;
-          text-transform: uppercase;
-
-          span {
-            color: $primary-color;
-          }
-        }
-
-        p {
-          width: 445px;
-          color: $black;
-          font-family: $manrope;
-          font-size: 15px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: 25px;
-        }
-      }
-
-      .right {
-        img {
-          width: 100%;
-          border-radius: 8px;
         }
       }
     }

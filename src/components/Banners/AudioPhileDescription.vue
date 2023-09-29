@@ -28,6 +28,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 100px 100px 100px;
+  gap: 24px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 20px;
+  }
 
   .left {
     display: flex;
@@ -36,7 +42,7 @@
 
     h1 {
       color: $black;
-      width: 445px;
+      max-width: 445px;
       font-family: $manrope;
       font-size: 40px;
       font-style: normal;
@@ -52,7 +58,7 @@
     }
 
     p {
-      width: 445px;
+      max-width: 445px;
       color: $black;
       font-family: $manrope;
       font-size: 15px;
@@ -65,6 +71,8 @@
   .right {
     img {
       width: 100%;
+      height: 450px;
+      object-fit: cover;
       border-radius: 8px;
     }
   }

@@ -24,6 +24,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 100px 0 200px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 100px 20px;
+  }
   .left {
     display: flex;
     flex-direction: column;
@@ -31,6 +36,12 @@
     gap: 24px;
     width: 50%;
     z-index: 1;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+    }
 
     h4 {
       opacity: 0.4964;
@@ -42,6 +53,10 @@
       line-height: normal;
       letter-spacing: 10px;
       text-transform: uppercase;
+
+      @media (max-width: 768px) {
+        letter-spacing: 5px;
+      }
     }
 
     h1 {
@@ -53,6 +68,14 @@
       line-height: 58px;
       letter-spacing: 2px;
       text-transform: uppercase;
+
+      @media (max-width: 768px) {
+        font-size: 56px;
+      }
+
+      @media (max-width: 475px) {
+        font-size: 36px;
+      }
     }
 
     p {
@@ -64,6 +87,14 @@
       font-weight: 500;
       line-height: 25px;
       width: 349px;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
+      @media (max-width: 475px) {
+        font-size: 14px;
+      }
     }
 
     a {
@@ -81,6 +112,14 @@
         color: $white;
         font-family: $manrope;
         cursor: pointer;
+        color: #fff;
+        font-family: $manrope;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 1px;
+        text-transform: uppercase;
       }
 
       &:hover {
@@ -94,12 +133,43 @@
   }
 
   .right {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      display: flex;
+    }
+
+    @media (max-width: 475px) {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
     img {
       width: 708.8px;
       flex-shrink: 0;
       position: absolute;
       top: 0;
       right: 0;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        margin: auto;
+      }
     }
   }
 }
