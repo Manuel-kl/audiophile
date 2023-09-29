@@ -34,6 +34,8 @@
     </div>
     <div class="sm">
       <div class="left">
+        <div class="bg" v-if="showNav"></div>
+
         <div class="menu">
           <HamburgerMenuSvg @click="toggleMenu" class="menu-icon" />
           <ul v-if="showNav" v-click-outside="closeNav">
@@ -68,7 +70,10 @@
   </nav>
 
   <div class="view-cart" v-if="showCart">
-    <CartComponent v-click-outside="hideCart" />
+    <div class="bg"></div>
+    <div class="cc">
+      <CartComponent v-click-outside="hideCart" />
+    </div>
   </div>
   <div class="border">
     <span></span>
@@ -136,6 +141,8 @@ const vClickOutside = {
 nav.navbar {
   svg {
     cursor: pointer;
+    position: relative;
+    z-index: 4;
 
     &:hover {
       path,
@@ -155,6 +162,7 @@ nav.navbar {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    display: flex;
     padding: 35px 100px;
     background-color: $black-shade-2;
     z-index: 4;
@@ -231,16 +239,32 @@ nav.navbar {
       flex-direction: row;
       align-items: center;
       gap: 24px;
+
+      .bg {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba($black, 0.4);
+        z-index: 1;
+        top: 0;
+        left: 0;
+      }
+
       h1 {
         font-size: 1.5rem;
         font-weight: 700;
         color: $white;
+        z-index: 4;
       }
 
       .menu {
         position: relative;
+        display: flex;
         z-index: 4;
+
         svg {
+          z-index: 4;
+
           cursor: pointer;
           &:hover {
             path {
@@ -248,9 +272,10 @@ nav.navbar {
             }
           }
         }
+
         ul {
           position: absolute;
-          top: 100%;
+          top: 30px;
           left: 0;
           background-color: $black-shade-2;
           padding: 24px;
@@ -259,6 +284,7 @@ nav.navbar {
           gap: 24px;
           list-style: none;
           z-index: 5;
+          border-radius: 7px;
           li {
             z-index: 5;
             position: relative;
@@ -290,7 +316,6 @@ nav.navbar {
     }
     .right {
       cursor: pointer;
-      z-index: 4;
     }
 
     @media (max-width: 1024px) {
@@ -324,10 +349,23 @@ nav.navbar {
   }
 }
 .view-cart {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba($black, 0.4);
-  z-index: 1;
+  .bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba($black, 0.4);
+    z-index: 1;
+    top: 0;
+  }
+
+  @media (max-width: 600px) {
+  }
+
+  .cc {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    height: 100%;
+  }
 }
 </style>

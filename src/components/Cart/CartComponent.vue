@@ -86,7 +86,20 @@ const goToCheckout = () => {
   padding: 24px;
   position: absolute;
   right: 100px;
-  top: 132px;
+  top: 20px;
+
+  @media (max-width: 768px) {
+    right: 50%;
+    transform: translateX(50%);
+  }
+  @media (max-width: 670px) {
+    width: 270px;
+  }
+
+  @media (max-width: 375px) {
+    width: fit-content;
+    min-width: 200px;
+  }
 
   .cart {
     display: flex;
@@ -103,6 +116,10 @@ const goToCheckout = () => {
       line-height: normal;
       letter-spacing: 1.286px;
       text-transform: uppercase;
+
+      @media (max-width: 425px) {
+        font-size: 16px;
+      }
     }
 
     button {
@@ -121,6 +138,10 @@ const goToCheckout = () => {
       &:hover {
         color: $primary-color;
         opacity: 1;
+      }
+
+      @media (max-width: 425px) {
+        font-size: 14px;
       }
     }
   }
@@ -143,6 +164,10 @@ const goToCheckout = () => {
         align-items: center;
         gap: 24px;
 
+        @media (max-width: 425px) {
+          gap: 16px;
+        }
+
         .img {
           border-radius: 8px;
           background: $light-gray;
@@ -151,6 +176,10 @@ const goToCheckout = () => {
           flex-shrink: 0;
           display: flex;
 
+          @media (max-width: 425px) {
+            width: 48px;
+            height: 48px;
+          }
           img {
             margin: auto;
           }
@@ -169,6 +198,14 @@ const goToCheckout = () => {
             font-style: normal;
             font-weight: 700;
             line-height: 25px;
+
+            @media (max-width: 425px) {
+              font-size: 14px;
+            }
+
+            @media (max-width: 375px) {
+              font-size: 11px;
+            }
           }
 
           .price {
@@ -179,6 +216,14 @@ const goToCheckout = () => {
             font-weight: 700;
             line-height: 25px;
             opacity: 0.5;
+
+            @media (max-width: 425px) {
+              font-size: 13px;
+            }
+
+            @media (max-width: 375px) {
+              font-size: 11px;
+            }
           }
         }
       }
@@ -190,6 +235,10 @@ const goToCheckout = () => {
         align-items: center;
         gap: 16px;
         background: $light-gray;
+
+        @media (max-width: 425px) {
+          gap: 8px;
+        }
 
         button {
           width: 32px;
@@ -208,6 +257,16 @@ const goToCheckout = () => {
           font-weight: 700;
           opacity: 0.25;
           line-height: 25px;
+
+          &:hover {
+            opacity: 1;
+          }
+
+          @media (max-width: 425px) {
+            width: 24px;
+            height: 24px;
+            font-size: 16px;
+          }
         }
 
         p {
@@ -219,6 +278,14 @@ const goToCheckout = () => {
           text-align: center;
           font-size: 13px;
           letter-spacing: 1px;
+
+          @media (max-width: 425px) {
+            font-size: 12px;
+          }
+
+          @media (max-width: 375px) {
+            font-size: 11px;
+          }
         }
       }
     }
@@ -238,6 +305,14 @@ const goToCheckout = () => {
       font-weight: 500;
       line-height: 25px;
       opacity: 0.5;
+
+      @media (max-width: 425px) {
+        font-size: 14px;
+      }
+
+      @media (max-width: 375px) {
+        font-size: 11px;
+      }
     }
 
     p {
@@ -249,6 +324,14 @@ const goToCheckout = () => {
       line-height: normal;
       letter-spacing: 1.286px;
       text-transform: uppercase;
+
+      @media (max-width: 425px) {
+        font-size: 16px;
+      }
+
+      @media (max-width: 375px) {
+        font-size: 13px;
+      }
     }
   }
 
@@ -271,6 +354,14 @@ const goToCheckout = () => {
 
       &:hover {
         background-color: $secondary-color;
+      }
+
+      @media (max-width: 425px) {
+        font-size: 12px;
+      }
+
+      @media (max-width: 375px) {
+        font-size: 11px;
       }
     }
   }
