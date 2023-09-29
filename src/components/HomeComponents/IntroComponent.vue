@@ -30,6 +30,7 @@
     justify-content: center;
     gap: 24px;
     width: 50%;
+    z-index: 1;
 
     h4 {
       opacity: 0.4964;
