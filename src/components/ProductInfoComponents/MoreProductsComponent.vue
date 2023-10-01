@@ -56,25 +56,44 @@ import ProductLinksComponent from "../Banners/ProductLinksComponent.vue";
     text-transform: uppercase;
     text-align: center;
     padding-bottom: 50px;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+      padding-bottom: 25px;
+    }
+
+    @media (max-width: 375px) {
+      font-size: 20px;
+    }
   }
   .first {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 100px;
+    }
     .img {
       border-radius: 8px;
       background: $light-gray;
-      width: 350px;
-      height: 318px;
       flex-shrink: 0;
+      height: 318px;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @media (max-width: 768px) {
+        height: 240px;
+      }
+
+      img {
+        object-fit: cover;
+      }
     }
 
     .info {
-      width: 350px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -92,6 +111,14 @@ import ProductLinksComponent from "../Banners/ProductLinksComponent.vue";
         line-height: normal;
         letter-spacing: 1.714px;
         text-transform: uppercase;
+
+        @media (max-width: 768px) {
+          font-size: 20px;
+        }
+
+        @media (max-width: 375px) {
+          font-size: 18px;
+        }
       }
 
       a {
@@ -115,11 +142,19 @@ import ProductLinksComponent from "../Banners/ProductLinksComponent.vue";
         &:hover {
           background-color: $secondary-color;
         }
+
+        @media (max-width: 768px) {
+          font-size: 12px;
+        }
+
+        @media (max-width: 375px) {
+          font-size: 11px;
+        }
       }
     }
   }
   .other-links {
-    padding-top: 200px;
+    padding-top: 150px;
   }
 }
 </style>

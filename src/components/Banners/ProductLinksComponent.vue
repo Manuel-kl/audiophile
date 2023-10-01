@@ -1,5 +1,5 @@
 <template>
-  <div class="product-links">
+  <div class="products-links">
     <div class="product">
       <img src="../../assets/images/headphones-intro.png" alt="headphones" />
       <OvalShadow class="shadow" />
@@ -46,11 +46,18 @@ import GreaterSign from "@/assets/svgs/GreaterSign.vue";
 </script>
 <style lang="scss" scoped>
 @import "../../sass/global.scss";
-div.product-links {
+.products-links {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  width: 100%;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top: 50;
+    gap: 100px;
+  }
 
   .product {
     display: flex;
@@ -58,11 +65,20 @@ div.product-links {
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    width: 350px;
+    max-width: 350px;
     height: 204px;
     flex-shrink: 0;
     background: $light-gray;
     position: relative;
+    flex: 1;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      background: $light-gray;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 40px;
+    }
 
     img {
       position: absolute;
@@ -79,7 +95,7 @@ div.product-links {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-top: 50px;
+      margin-top: 100px;
       gap: 20px;
 
       h2 {
@@ -111,10 +127,12 @@ div.product-links {
           text-transform: uppercase;
           border: none;
           gap: 7px;
-          cursor: pointer;
+        }
 
-          &:hover {
+        &:hover {
+          button {
             color: $primary-color;
+            cursor: pointer;
           }
         }
       }

@@ -15,7 +15,8 @@
       </p>
     </div>
     <div class="right">
-      <img src="../../assets/images/audio-gear.png" alt="" />
+      <img class="img-lg" src="../../assets/images/audio-gear.png" alt="" />
+      <img class="img-sm" src="../../assets/images/audio-gear-sm.png" alt="" />
     </div>
   </div>
 </template>
@@ -23,22 +24,31 @@
 <style lang="scss" scoped>
 @import "../../sass/global.scss";
 .description {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   padding: 0 100px 100px 100px;
   gap: 24px;
 
+  @media (max-width: 1024px) {
+    padding: 0;
+  }
+
   @media (max-width: 768px) {
-    flex-direction: column;
-    padding: 0 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0;
   }
 
   .left {
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    @media (max-width: 768px) {
+      align-items: center;
+      text-align: center;
+    }
 
     h1 {
       color: $black;
@@ -55,6 +65,14 @@
       span {
         color: $primary-color;
       }
+
+      @media (max-width: 768px) {
+        font-size: 30px;
+      }
+
+      @media (max-width: 425px) {
+        font-size: 25px;
+      }
     }
 
     p {
@@ -65,15 +83,44 @@
       font-style: normal;
       font-weight: 500;
       line-height: 25px;
+
+      @media (max-width: 768px) {
+        font-size: 13px;
+      }
+
+      @media (max-width: 425px) {
+        font-size: 12px;
+      }
     }
   }
 
   .right {
+    .img-sm {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+
+      .img-lg {
+        display: none;
+      }
+
+      .img-sm {
+        display: block;
+      }
+    }
     img {
       width: 100%;
       height: 450px;
       object-fit: cover;
       border-radius: 8px;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 }

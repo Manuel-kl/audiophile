@@ -25,7 +25,7 @@
           </router-link>
         </div>
       </div>
-      <div class="headphone">
+      <div class="headphone headphone-two">
         <div class="details">
           <h1>
             XX99 MARK I <br />
@@ -66,64 +66,10 @@
       </div>
     </section>
     <section class="other-products">
-      <div class="product">
-        <img src="../assets/images/headphones-intro.png" alt="headphones" />
-        <OvalShadow class="shadow" />
-        <div class="product-info">
-          <h2>HEADPHONES</h2>
-          <router-link to="/headphones">
-            <button>
-              SHOP
-              <GreaterSign />
-            </button>
-          </router-link>
-        </div>
-      </div>
-      <div class="product">
-        <img src="../assets/images/speaker-intro.png" alt="speakers" />
-        <OvalShadow class="shadow" />
-        <div class="product-info">
-          <h2>SPEAKERS</h2>
-          <router-link to="/speakers">
-            <button>
-              SHOP
-              <GreaterSign />
-            </button>
-          </router-link>
-        </div>
-      </div>
-      <div class="product">
-        <img src="../assets/images/earphones-intro.png" alt="earphones" />
-        <OvalShadow class="shadow" />
-        <div class="product-info">
-          <h2>EARPHONES</h2>
-          <router-link to="/earphones">
-            <button>
-              SHOP
-              <GreaterSign />
-            </button>
-          </router-link>
-        </div>
-      </div>
+      <product-links-component />
     </section>
     <section class="more">
-      <div class="left">
-        <h1>
-          <br />
-          Bringing you the <span> best </span> audio gear
-        </h1>
-        <p>
-          Located at the heart of New York City, Audiophile is the premier store
-          for high end headphones, earphones, speakers, and audio accessories.
-          We have a large showroom and luxury demonstration rooms available for
-          you to browse and experience a wide range of our products. Stop by our
-          store to meet some of the fantastic people who make Audiophile the
-          best place to buy your portable audio equipment.
-        </p>
-      </div>
-      <div class="right">
-        <img src="../assets/images/audio-gear.png" alt="" />
-      </div>
+      <audio-phil-description />
     </section>
     <section class="footer">
       <FooterComponent />
@@ -131,10 +77,10 @@
   </div>
 </template>
 <script setup>
-import GreaterSign from "../assets/svgs/GreaterSign.vue";
-import OvalShadow from "../assets/svgs/OvalShadow.vue";
 import FooterComponent from "../components/FooterComponent.vue";
 import NavBar from "../components/NavBar.vue";
+import AudioPhilDescription from "../components/Banners/AudioPhileDescription.vue";
+import ProductLinksComponent from "../components/Banners/ProductLinksComponent.vue";
 </script>
 <style lang="scss" scoped>
 @import "../sass/global.scss";
@@ -149,6 +95,10 @@ import NavBar from "../components/NavBar.vue";
     background-color: $black;
     padding: 50px 0;
 
+    @media (max-width: 768px) {
+      padding: 25px 0;
+    }
+
     h1 {
       color: $white;
       text-align: center;
@@ -159,6 +109,10 @@ import NavBar from "../components/NavBar.vue";
       line-height: 44px;
       letter-spacing: 1.429px;
       text-transform: uppercase;
+
+      @media (max-width: 768px) {
+        font-size: 32px;
+      }
     }
   }
 
@@ -168,13 +122,26 @@ import NavBar from "../components/NavBar.vue";
     padding: 100px;
     gap: 100px;
 
+    @media (max-width: 1200px) {
+      padding: 50px;
+      gap: 50px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 100px 25px;
+      gap: 100px;
+    }
+
     .headphone {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 40px;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
 
       .img {
         border-radius: 8px;
@@ -182,14 +149,24 @@ import NavBar from "../components/NavBar.vue";
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 540px;
-        height: 560px;
+        height: 452px;
         flex-shrink: 0;
+
+        @media (max-width: 768px) {
+          width: 100%;
+          height: 352px;
+        }
 
         img {
           width: 349.238px;
           flex-shrink: 0;
           margin: auto;
+
+          @media (max-width: 768px) {
+            width: 220px;
+            height: 243px;
+            flex-shrink: 0;
+          }
         }
       }
 
@@ -200,6 +177,12 @@ import NavBar from "../components/NavBar.vue";
         align-items: flex-start;
         gap: 32px;
 
+        @media (max-width: 768px) {
+          align-items: center;
+          text-align: center;
+          gap: 16px;
+        }
+
         h2 {
           color: $primary-color;
           font-family: $manrope;
@@ -209,6 +192,10 @@ import NavBar from "../components/NavBar.vue";
           line-height: normal;
           letter-spacing: 10px;
           text-transform: uppercase;
+
+          @media (max-width: 768px) {
+            font-size: 12px;
+          }
         }
 
         h1 {
@@ -220,6 +207,10 @@ import NavBar from "../components/NavBar.vue";
           line-height: 44px;
           letter-spacing: 1.429px;
           text-transform: uppercase;
+
+          @media (max-width: 768px) {
+            font-size: 32px;
+          }
         }
 
         p {
@@ -231,6 +222,10 @@ import NavBar from "../components/NavBar.vue";
           font-style: normal;
           font-weight: 500;
           line-height: 25px;
+
+          @media (max-width: 768px) {
+            font-size: 13px;
+          }
         }
         a {
           width: 160px;
@@ -254,6 +249,10 @@ import NavBar from "../components/NavBar.vue";
             letter-spacing: 1px;
             text-transform: uppercase;
             cursor: pointer;
+
+            @media (max-width: 768px) {
+              font-size: 12px;
+            }
           }
 
           &:hover {
@@ -266,6 +265,13 @@ import NavBar from "../components/NavBar.vue";
         }
       }
     }
+
+    .headphone-two {
+      @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
   }
   section.other-products {
     display: flex;
@@ -274,75 +280,12 @@ import NavBar from "../components/NavBar.vue";
     align-items: center;
     padding: 100px;
 
-    .product {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border-radius: 8px;
-      width: 350px;
-      height: 204px;
-      flex-shrink: 0;
-      background: $light-gray;
-      position: relative;
+    @media (max-width: 1200px) {
+      padding: 50px;
+    }
 
-      img {
-        position: absolute;
-        top: -80px;
-      }
-
-      .shadow {
-        position: absolute;
-        top: 30px;
-      }
-
-      .product-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 50px;
-        gap: 20px;
-
-        h2 {
-          color: $black;
-          text-align: center;
-          font-family: $manrope;
-          font-size: 18px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: normal;
-          letter-spacing: 1.286px;
-          text-transform: uppercase;
-        }
-        a {
-          text-decoration: none;
-          button {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            color: $black;
-            font-family: $manrope;
-            font-size: 13px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: none;
-            gap: 7px;
-            cursor: pointer;
-          }
-
-          &:hover {
-            button {
-              color: $primary-color;
-            }
-          }
-        }
-      }
+    @media (max-width: 576px) {
+      padding: 25px;
     }
   }
   section.more {
@@ -350,52 +293,28 @@ import NavBar from "../components/NavBar.vue";
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 100px 100px 100px;
 
-    .left {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-
-      h1 {
-        color: $black;
-        width: 445px;
-        font-family: $manrope;
-        font-size: 40px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        line-height: 44px;
-        letter-spacing: 1.429px;
-        text-transform: uppercase;
-
-        span {
-          color: $primary-color;
-        }
-      }
-
-      p {
-        width: 445px;
-        color: $black;
-        font-family: $manrope;
-        font-size: 15px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 25px;
-      }
+    @media (max-width: 1200px) {
+      padding: 50px;
     }
 
-    .right {
-      img {
-        width: 100%;
-        border-radius: 8px;
-      }
+    @media (max-width: 768px) {
+      padding: 25px;
+      justify-content: center;
     }
   }
 
   section.footer {
     background-color: $black-shade-1;
     padding: 0 100px;
+
+    @media (max-width: 1200px) {
+      padding: 0 50px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 0 20px;
+    }
   }
 }
 </style>

@@ -7,7 +7,7 @@
     <section class="products">
       <ProductsComponent />
     </section>
-    <section>
+    <section class="info">
       <audio-phile-description />
     </section>
     <section class="footer">
@@ -38,7 +38,8 @@ import AudioPhileDescription from "../components/Banners/AudioPhileDescription.v
     }
   }
 
-  section.products {
+  section.products,
+  section.info {
     padding: 0 100px;
 
     @media (max-width: 768px) {

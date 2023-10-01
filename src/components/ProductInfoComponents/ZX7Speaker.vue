@@ -92,7 +92,7 @@ import FooterComponent from "../FooterComponent.vue";
 import MoreProductsComponent from "./MoreProductsComponent.vue";
 import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
 </script>
-      <style lang="scss" scoped>
+<style lang="scss" scoped>
 @import "../../sass/global.scss";
 .product-info {
   display: flex;
@@ -100,6 +100,14 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
 
   section.back {
     padding: 50px 100px;
+
+    @media (max-width: 1024px) {
+      padding: 25px 50px;
+    }
+
+    @media (max-width: 375px) {
+      padding: 24px;
+    }
 
     .back-link {
       opacity: 0.5;
@@ -110,32 +118,63 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
       font-weight: 500;
       line-height: 25px;
       text-decoration: none;
+      cursor: pointer;
+      width: fit-content;
+
+      &:hover {
+        color: $primary-color;
+      }
     }
   }
 
   section.intro {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding: 0 100px;
-    flex-wrap: wrap;
+    gap: 50px;
+
+    @media (max-width: 1024px) {
+      padding: 0 50px;
+    }
+
+    @media (max-width: 768px) {
+      gap: 25px;
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+
+    @media (max-width: 375px) {
+      padding: 0 24px;
+    }
 
     .img {
       border-radius: 8px;
       background: $light-gray;
-      width: 540px;
+      max-width: 540px;
       height: 560px;
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-basis: 45%;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        height: 100%;
+      }
 
       img {
-        width: 268.022px;
-        height: 385px;
+        width: 349.238px;
+        height: 386px;
         flex-shrink: 0;
         margin: auto;
+
+        @media (max-width: 768px) {
+          width: 181px;
+          height: 201px;
+          flex-shrink: 0;
+        }
       }
     }
     .info {
@@ -143,8 +182,11 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      flex-basis: 45%;
       gap: 24px;
+
+      @media (max-width: 768px) {
+        gap: 16px;
+      }
 
       h2 {
         color: $primary-color;
@@ -155,6 +197,11 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
         line-height: normal;
         letter-spacing: 10px;
         text-transform: uppercase;
+
+        @media (max-width: 768px) {
+          font-size: 12px;
+          letter-spacing: 8px;
+        }
       }
 
       h1 {
@@ -166,6 +213,18 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
         line-height: 44px;
         letter-spacing: 1.429px;
         text-transform: uppercase;
+
+        @media (max-width: 768px) {
+          font-size: 32px;
+          line-height: 36px;
+          letter-spacing: 1.143px;
+        }
+
+        @media (max-width: 375px) {
+          font-size: 24px;
+          line-height: 28px;
+          letter-spacing: 0.857px;
+        }
       }
 
       p.description {
@@ -177,6 +236,11 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
         font-style: normal;
         font-weight: 500;
         line-height: 25px;
+
+        @media (max-width: 768px) {
+          font-size: 13px;
+          line-height: 22px;
+        }
       }
       p.price {
         color: $black;
@@ -187,6 +251,11 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
         line-height: normal;
         letter-spacing: 1.286px;
         text-transform: uppercase;
+
+        @media (max-width: 768px) {
+          font-size: 15px;
+          letter-spacing: 1.071px;
+        }
       }
       .add-cart {
         display: flex;
@@ -194,6 +263,16 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
         justify-content: space-between;
         align-items: center;
         gap: 16px;
+
+        @media (max-width: 768px) {
+          gap: 8px;
+        }
+
+        @media (max-width: 576px) {
+          width: 100%;
+          display: grid;
+          grid-template-columns: 1fr 1.2fr;
+        }
 
         .input {
           width: 120px;
@@ -204,6 +283,11 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
           justify-content: space-between;
           align-items: center;
           background: $light-gray;
+
+          @media (max-width: 768px) {
+            width: 100px;
+            height: 40px;
+          }
 
           span {
             opacity: 0.25;
@@ -216,6 +300,10 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
             font-weight: 700;
             line-height: normal;
             letter-spacing: 1px;
+
+            @media (max-width: 768px) {
+              font-size: 11px;
+            }
           }
           input {
             color: $black;
@@ -231,6 +319,10 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
             background: $light-gray;
             border: none;
             outline: none;
+
+            @media (max-width: 768px) {
+              font-size: 11px;
+            }
           }
           input[type="number"]::-webkit-inner-spin-button,
           input[type="number"]::-webkit-outer-spin-button {
@@ -254,23 +346,48 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
           border: none;
           background-color: $primary-color;
           cursor: pointer;
+
+          &:hover {
+            background-color: $secondary-color;
+          }
+
+          @media (max-width: 768px) {
+            width: 120px;
+            height: 40px;
+            font-size: 11px;
+          }
         }
       }
     }
   }
   section.features {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding: 100px;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 50px;
+
+    @media (max-width: 1024px) {
+      padding: 100px 50px 50px 50px;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+
+    @media (max-width: 576px) {
+      padding: 100px 24px 50px 24px;
+    }
 
     .left {
       display: flex;
       flex-direction: column;
       gap: 24px;
-      flex-basis: 45%;
+
+      @media (max-width: 768px) {
+        gap: 16px;
+      }
 
       h2 {
         color: $black;
@@ -281,10 +398,15 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
         line-height: 36px;
         letter-spacing: 1.143px;
         text-transform: uppercase;
+
+        @media (max-width: 768px) {
+          font-size: 25px;
+          line-height: 28px;
+          letter-spacing: 0.893px;
+        }
       }
       p {
         opacity: 0.5;
-        max-width: 635px;
         color: $black;
         font-family: $manrope;
         font-size: 15px;
@@ -297,7 +419,6 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      flex-basis: 45%;
 
       h2 {
         color: $black;
@@ -309,6 +430,13 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
         letter-spacing: 1.143px;
         text-transform: uppercase;
         margin-bottom: 32px;
+
+        @media (max-width: 768px) {
+          font-size: 25px;
+          line-height: 28px;
+          letter-spacing: 0.893px;
+          margin-bottom: 16px;
+        }
       }
       p {
         color: $black;
@@ -326,6 +454,16 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
           font-weight: 700;
           line-height: 25px;
           margin-right: 8px;
+
+          @media (max-width: 768px) {
+            font-size: 13px;
+            line-height: 22px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          font-size: 13px;
+          line-height: 22px;
         }
       }
     }
@@ -334,10 +472,20 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
     display: flex;
     flex-direction: row;
     padding: 0 100px;
-    flex-wrap: wrap;
     gap: 24px;
-    height: 600px;
     margin: auto;
+
+    @media (max-width: 1024px) {
+      padding: 50px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 0 24px;
+    }
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+    }
     .left {
       display: flex;
       flex-direction: column;
@@ -359,11 +507,48 @@ import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
     }
   }
   section.recommendations {
-    padding: 100px;
+    padding: 50px 100px;
+
+    @media (max-width: 1024px) {
+      padding: 50px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 50px 24px;
+    }
+
+    @media (max-width: 375px) {
+      padding: 24px;
+    }
+  }
+  section.more-info {
+    @media (max-width: 1024px) {
+      padding: 50px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 50px 24px;
+    }
+
+    @media (max-width: 375px) {
+      padding: 24px;
+    }
   }
   section.footer {
     background-color: $black;
     padding: 0 100px;
+
+    @media (max-width: 1024px) {
+      padding: 0 50px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 0 24px;
+    }
+
+    @media (max-width: 375px) {
+      padding: 0 24px;
+    }
   }
 }
 </style>

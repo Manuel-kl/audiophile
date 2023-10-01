@@ -77,6 +77,13 @@ footer {
     align-items: center;
     padding: 35px 0;
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 24px;
+    }
+
     .left {
       h4 {
         font-size: 1.5rem;
@@ -91,6 +98,12 @@ footer {
         flex-direction: row;
         list-style: none;
         gap: 24px;
+
+        @media (max-width: 576px) {
+          flex-direction: column;
+          gap: 16px;
+        }
+
         li {
           a {
             color: $white;
@@ -117,6 +130,13 @@ footer {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 24px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 20px;
+      gap: 24px;
+    }
 
     p {
       opacity: 0.5;
@@ -127,6 +147,11 @@ footer {
       font-weight: 500;
       line-height: 25px;
       max-width: 540px;
+
+      @media (max-width: 768px) {
+        text-align: center;
+        width: 100%;
+      }
     }
 
     .social-links {
@@ -156,6 +181,10 @@ footer {
     font-style: normal;
     font-weight: 700;
     line-height: 25px;
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
   }
 }
 </style>
