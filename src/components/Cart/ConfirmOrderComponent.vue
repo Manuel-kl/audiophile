@@ -50,15 +50,29 @@
   width: 450px;
   background-color: $white;
   flex-shrink: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
+  gap: 24px;
+  border-radius: 8px;
+
+  @media (max-width: 600px) {
+    padding: 20px;
+    width: 350px;
+  }
+
+  @media (max-width: 500px) {
+    padding: 10px;
+  }
+
+  @media (max-width: 425px) {
+    width: 270px;
+  }
 
   .img {
     display: flex;
     margin-bottom: 40px;
+
+    @media (max-width: 625px) {
+      margin-bottom: 0px;
+    }
 
     img {
       width: 64px;
@@ -73,6 +87,11 @@
     margin-bottom: 40px;
     gap: 16px;
 
+    @media (max-width: 625px) {
+      margin-bottom: 0px;
+      gap: 5px;
+    }
+
     h2 {
       color: $black;
       font-family: $manrope;
@@ -82,6 +101,21 @@
       line-height: 36px;
       letter-spacing: 1.143px;
       text-transform: uppercase;
+
+      @media (max-width: 625px) {
+        font-size: 28px;
+        text-align: center;
+      }
+
+      @media (max-width: 425px) {
+        font-size: 24px;
+        text-align: center;
+      }
+
+      @media (max-width: 375px) {
+        font-size: 20px;
+        text-align: center;
+      }
     }
     p {
       color: $black;
@@ -91,6 +125,16 @@
       font-weight: 500;
       line-height: 25px;
       opacity: 0.5;
+
+      @media (max-width: 625px) {
+        font-size: 14px;
+        text-align: center;
+      }
+
+      @media (max-width: 425px) {
+        font-size: 14px;
+        text-align: center;
+      }
     }
   }
   .summary {
@@ -99,6 +143,12 @@
     border-radius: 8px;
     background: $light-gray;
     gap: 25px;
+
+    @media (max-width: 625px) {
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
     .left {
       display: flex;
       flex-direction: column;
@@ -186,6 +236,11 @@
       justify-content: center;
       align-items: center;
       gap: 16px;
+
+      @media (max-width: 625px) {
+        border-radius: 0px 0px 8px 8px;
+        padding: 5px;
+      }
 
       h4 {
         color: $white;

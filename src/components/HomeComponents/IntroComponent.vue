@@ -23,11 +23,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 100px 0 200px;
+  padding: 100px 0 50px 0;
+  height: 400px;
 
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 100px 20px;
+    position: relative;
   }
   .left {
     display: flex;
@@ -137,7 +139,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    height: 100vh;
+    height: 100%;
 
     @media (max-width: 768px) {
       width: 100%;
@@ -145,19 +147,11 @@
       position: absolute;
       top: 0;
       right: 0;
-      height: 100vh;
       display: flex;
     }
 
-    @media (max-width: 475px) {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
     img {
-      width: 708.8px;
+      height: 640px;
       flex-shrink: 0;
       position: absolute;
       top: 0;

@@ -21,16 +21,10 @@
         </p>
         <p class="price">$ 2,999</p>
         <div class="add-cart">
-          <div class="input">
-            <span>-</span>
-            <input
-              type="number"
-              name="quantity"
-              id="quantity"
-              value="1"
-              min="1"
-            />
-            <span>+</span>
+          <div class="quantity">
+            <button @click="decreaseQuantity">-</button>
+            <p>{{ quantity }}</p>
+            <button @click="increaseQuantity">+</button>
           </div>
           <button>ADD TO CART</button>
         </div>
@@ -92,6 +86,18 @@ import MoreProductsComponent from "./MoreProductsComponent.vue";
 import AudioPhileDescription from "../Banners/AudioPhileDescription.vue";
 
 import { useRouter } from "vue-router";
+import { ref } from "vue";
+const quantity = ref(1);
+
+const increaseQuantity = () => {
+  return quantity.value++;
+};
+
+const decreaseQuantity = () => {
+  if (quantity.value != 0 || !quantity.value < 0) {
+    return quantity.value--;
+  }
+};
 
 const router = useRouter();
 
@@ -281,60 +287,52 @@ const goBack = () => {
           grid-template-columns: 1fr 1.2fr;
         }
 
-        .input {
-          width: 120px;
-          height: 48px;
-          flex-shrink: 0;
+        .quantity {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
+          gap: 16px;
           background: $light-gray;
+          height: 42px;
 
-          @media (max-width: 768px) {
-            width: 100px;
-            height: 40px;
+          @media (max-width: 425px) {
+            gap: 8px;
           }
 
-          span {
-            opacity: 0.25;
-            width: 16px;
-            color: $black;
-            text-align: center;
-            font-family: $manrope;
-            font-size: 13px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            letter-spacing: 1px;
-
-            @media (max-width: 768px) {
-              font-size: 11px;
-            }
-          }
-          input {
-            color: $black;
-            font-family: $manrope;
-            font-size: 13px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            letter-spacing: 1px;
-            text-align: center;
-            width: 30px;
-            padding: 8px;
+          button {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
             background: $light-gray;
             border: none;
-            outline: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $black;
+            font-family: $manrope;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            opacity: 0.25;
+            line-height: 25px;
 
-            @media (max-width: 768px) {
-              font-size: 11px;
+            &:hover {
+              opacity: 1;
+              background: $light-gray;
             }
           }
-          input[type="number"]::-webkit-inner-spin-button,
-          input[type="number"]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
+
+          p {
+            color: $black;
+            font-family: $manrope;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 35px;
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: 1px;
           }
         }
         button {

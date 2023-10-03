@@ -16,9 +16,9 @@
           </div>
         </div>
         <div class="quantity">
-          <button>-</button>
-          <p>1</p>
-          <button>+</button>
+          <button @click="decreaseQuantity(itemTwo)">-</button>
+          <p>{{ quantity }}</p>
+          <button @click="increaseQuantity(itemTwo)">+</button>
         </div>
       </div>
       <div class="product">
@@ -32,9 +32,9 @@
           </div>
         </div>
         <div class="quantity">
-          <button>-</button>
-          <p>2</p>
-          <button>+</button>
+          <button @click="decreaseQuantity(itemOne)">-</button>
+          <p>{{ quantity }}</p>
+          <button @click="increaseQuantity(itemOne)">+</button>
         </div>
       </div>
       <div class="product">
@@ -48,9 +48,9 @@
           </div>
         </div>
         <div class="quantity">
-          <button>-</button>
-          <p>1</p>
-          <button>+</button>
+          <button @click="decreaseQuantity(itemThree)">-</button>
+          <p>{{ quantity }}</p>
+          <button @click="increaseQuantity(itemThree)">+</button>
         </div>
       </div>
       <div class="total">
@@ -64,9 +64,21 @@
   </div>
 </template>
 <script setup>
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+const quantity = ref(1);
+
+const increaseQuantity = () => {
+  return quantity.value++;
+};
+
+const decreaseQuantity = (itemOne) => {
+  if (quantity.value != 0 || !quantity.value < 0) {
+    return quantity.value--;
+  }
+};
 
 const goToCheckout = () => {
   router.push("/checkout");

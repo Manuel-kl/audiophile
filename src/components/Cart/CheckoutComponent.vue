@@ -1,9 +1,9 @@
 <template>
   <div class="checkout-wrapper">
     <NavBar />
-    <div class="back">
-      <h1 @click="goBack">Go back</h1>
-    </div>
+    <section class="back">
+      <p @click="goBack" class="back-link">Go Back</p>
+    </section>
     <section class="checkout">
       <div class="checkout">
         <h3>CHECKOUT</h3>
@@ -155,7 +155,10 @@
       </div>
     </section>
     <section class="order-confirmation" v-if="showOrder">
-      <confirm-order-component v-click-outside="hideOrder" />
+      <div class="bg"></div>
+      <div class="order-component">
+        <confirm-order-component v-click-outside="hideOrder" />
+      </div>
     </section>
     <div class="footer">
       <footer-component />
@@ -170,7 +173,7 @@ import UnselectedRadioSvg from "../../assets/svgs/UnselectedRadioSvg.vue";
 import SelectedRadioSvg from "../../assets/svgs/SelectedRadioSvg.vue";
 
 import { useRouter } from "vue-router";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 const router = useRouter();
 
@@ -200,6 +203,14 @@ const selectCash = () => {
 
 const makeOrder = () => {
   showOrder.value = true;
+  scrollTop();
+};
+
+const scrollTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 };
 
 const hideOrder = () => {
@@ -233,21 +244,28 @@ const vClickOutside = {
 .checkout-wrapper {
   display: flex;
   flex-direction: column;
-  .back {
-    background: $light-gray;
-    padding: 30px 100px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  section.back {
+    padding: 25px 100px;
 
-    h1 {
+    @media (max-width: 1024px) {
+      padding: 25px 50px;
+    }
+
+    @media (max-width: 375px) {
+      padding: 24px;
+    }
+
+    .back-link {
+      opacity: 0.5;
       color: $black;
       font-family: $manrope;
-      cursor: pointer;
       font-size: 15px;
       font-style: normal;
       font-weight: 500;
       line-height: 25px;
+      text-decoration: none;
+      cursor: pointer;
+      width: fit-content;
 
       &:hover {
         color: $primary-color;
@@ -256,23 +274,39 @@ const vClickOutside = {
   }
   section.checkout {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: 24px;
-    padding: 0 100px 58px 100px;
+    padding: 25px 100px 58px 100px;
     background: $light-gray;
+
+    @media (max-width: 1074px) {
+      padding: 25px;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
 
     div.checkout {
       display: flex;
       flex-direction: column;
-      gap: 56px;
-      padding: 58px 40px 0px 40px;
+      gap: 26px;
+      padding: 20px;
       background: $white;
       border-radius: 8px;
+
+      @media (max-width: 768px) {
+        padding: 20px 24px;
+      }
+
+      @media (max-width: 375px) {
+        padding: 20px 16px;
+      }
 
       h3 {
         color: $black;
         font-family: $manrope;
-        font-size: 32px;
+        font-size: 24px;
         font-style: normal;
         font-weight: 700;
         line-height: 36px;
@@ -301,12 +335,17 @@ const vClickOutside = {
           display: inline-flex;
           flex-direction: row;
           flex-wrap: wrap;
-          gap: 24px;
+          gap: 16px;
+
+          @media (max-width: 768px) {
+            justify-content: space-between;
+          }
 
           .form-group {
             display: flex;
             flex-direction: column;
             gap: 8px;
+            position: relative;
 
             label {
               color: $black;
@@ -322,10 +361,11 @@ const vClickOutside = {
               border-radius: 8px;
               border: 1px solid #cfcfcf;
               background: $white;
-              width: 300px;
+              width: 200px;
               flex-shrink: 0;
               outline: none;
               padding: 16px 24px;
+              position: relative;
 
               &::placeholder {
                 color: $black;
@@ -341,6 +381,10 @@ const vClickOutside = {
               &:focus-visible {
                 border: 1px solid $primary-color;
               }
+
+              @media (max-width: 768px) {
+                width: max-content;
+              }
             }
           }
         }
@@ -352,6 +396,10 @@ const vClickOutside = {
           display: grid;
           grid-template-columns: 1fr 1fr;
           padding-bottom: 44px;
+
+          @media (max-width: 500px) {
+            grid-template-columns: 1fr;
+          }
 
           h4 {
             color: $primary-color;
@@ -382,8 +430,7 @@ const vClickOutside = {
               font-weight: 700;
               line-height: normal;
               letter-spacing: -0.25px;
-              width: 300px;
-              padding: 24px;
+              padding: 16px;
               flex-shrink: 0;
               border-radius: 8px;
               background: $white;
@@ -430,7 +477,6 @@ const vClickOutside = {
                 border-radius: 8px;
                 border: 1px solid #cfcfcf;
                 background: $white;
-                width: 300px;
                 flex-shrink: 0;
                 outline: none;
                 padding: 16px 24px;
@@ -458,13 +504,13 @@ const vClickOutside = {
       gap: 24px;
       border-radius: 8px;
       background: $white;
-      padding: 33px;
+      padding: 23px;
       height: fit-content;
 
       h3 {
         color: $black;
         font-family: $manrope;
-        font-size: 18px;
+        font-size: 15px;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
@@ -492,8 +538,8 @@ const vClickOutside = {
             .img {
               border-radius: 8px;
               background: $light-gray;
-              width: 64px;
-              height: 64px;
+              width: 54px;
+              height: 54px;
               flex-shrink: 0;
               display: flex;
               justify-content: center;
@@ -508,7 +554,7 @@ const vClickOutside = {
               h4 {
                 color: $black;
                 font-family: $manrope;
-                font-size: 15px;
+                font-size: 12px;
                 font-style: normal;
                 font-weight: 700;
                 line-height: 25px;
@@ -517,7 +563,7 @@ const vClickOutside = {
               .price {
                 color: $black;
                 font-family: $manrope;
-                font-size: 14px;
+                font-size: 11px;
                 font-style: normal;
                 font-weight: 700;
                 line-height: 25px;
@@ -562,7 +608,7 @@ const vClickOutside = {
           p.ww {
             color: $black;
             font-family: $manrope;
-            font-size: 15px;
+            font-size: 12px;
             font-style: normal;
             font-weight: 500;
             line-height: 25px;
@@ -573,7 +619,7 @@ const vClickOutside = {
             color: $black;
             text-align: right;
             font-family: $manrope;
-            font-size: 18px;
+            font-size: 14px;
             font-style: normal;
             font-weight: 700;
             line-height: normal;
@@ -584,7 +630,7 @@ const vClickOutside = {
             color: $primary-color;
             text-align: right;
             font-family: $manrope;
-            font-size: 18px;
+            font-size: 15px;
             font-style: normal;
             font-weight: 700;
             line-height: normal;
@@ -596,11 +642,11 @@ const vClickOutside = {
           background: $primary-color;
           color: $white;
           font-family: $manrope;
-          font-size: 15px;
+          font-size: 13px;
           font-style: normal;
           font-weight: 700;
           line-height: 25px;
-          padding: 16px 24px;
+          padding: 12px 24px;
           width: 100%;
           border: none;
           outline: none;
@@ -614,11 +660,25 @@ const vClickOutside = {
     }
   }
   section.order-confirmation {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    background-position: fixed;
+    .bg {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba($black, 0.4);
+      z-index: 1;
+      top: 0;
+    }
+
+    @media (max-width: 600px) {
+    }
+
+    .order-component {
+      position: absolute;
+      top: 100px;
+      z-index: 4;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
   .footer {
     background-color: $black-shade-1;

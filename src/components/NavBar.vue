@@ -35,7 +35,6 @@
     <div class="sm">
       <div class="left">
         <div class="bg" v-if="showNav"></div>
-
         <div class="menu">
           <HamburgerMenuSvg @click="toggleMenu" class="menu-icon" />
           <ul v-if="showNav" v-click-outside="closeNav">
@@ -68,7 +67,6 @@
       </div>
     </div>
   </nav>
-
   <div class="view-cart" v-if="showCart">
     <div class="bg"></div>
     <div class="cc">
@@ -244,7 +242,7 @@ nav.navbar {
         position: fixed;
         width: 100%;
         height: 100%;
-        background: rgba($black, 0.4);
+        background: rgba($black, 0.6);
         z-index: 1;
         top: 0;
         left: 0;
@@ -364,7 +362,7 @@ nav.navbar {
   .cc {
     position: relative;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     height: 100%;
   }
 }
